@@ -21,6 +21,7 @@ io.on('connection', (socket) => {
     });
     socket.on('chatMessage', (payload) => {
         console.log(payload);
+        io.emit('chatMessage', payload);
     });
 });
 

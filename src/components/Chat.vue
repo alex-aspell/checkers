@@ -4,6 +4,9 @@
             <input v-model="message" placeholder="Chat"/>
             <button @click="sendMessage">Send</button>
         </form>
+        <p v-for="msg in msgs" :key="msg"> 
+            {{msg}}
+        </p>
     </div>
 </template>
 
@@ -12,8 +15,8 @@ export default {
     data () {
         return {
             isConnected: false,
-            // socketMessage: '',
             message: '',
+            msgs: '',
         };
     },
     sockets: {
@@ -31,6 +34,9 @@ export default {
         sendMessage(){
             console.log(this.message);
             this.$socket.emit('chatMessage', this.message);
+            this.$socket.on('chatMessage', (msgs) => {
+                this.msgs = msgs;
+            })
         }
     }
 }
