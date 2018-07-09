@@ -19,4 +19,8 @@ io.on('connection', (socket) => {
     socket.on('testEvent', (payload) => {
         console.log(payload);
     });
+    socket.on('chatMessage', (payload) => {
+        console.log(payload);
+    });
 });
+

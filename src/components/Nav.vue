@@ -13,6 +13,7 @@ export default {
       links: [
         { title: 'Home', path: '/' },
         { title: 'Alex', path: '/alex' },
+        { title: 'Chat', path: '/chat'},
       ]
     }
   }
